@@ -204,9 +204,17 @@ class ThemeController extends FormController
             $themeNames = json_decode($request->query->get('ids', '{}'));
 
             foreach ($themeNames as $themeName) {
-                $flashes = $this->deleteTheme($themeHelper, $themeName);
+                $this->deleteTheme($themeHelper, $themeName);
             }
         }
+
+        $deleted  = count($themeNames);
+        $this->addFlashMessage(
+            'mautic.core.notice.batch_deleted',
+            [
+                '%count%'     => $deleted,
+            ]
+        );
 
         return $this->postActionRedirect(
             array_merge($this->getIndexPostActionVars(), [
