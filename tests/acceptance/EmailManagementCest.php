@@ -53,7 +53,7 @@ class EmailManagementCest
     {
         $categories = $I->grabMultiple('span.label-category');
         for ($i = 1; $i <= count($categories); ++$i) {
-            $I->see($firstCategoryName, '//*[@id="app-content"]/div/div[2]/div[2]/div[1]/table/tbody/tr['.$i.']/td[3]/div');
+            $I->see($firstCategoryName, '//*[@id="app-content"]/div/div[2]/div[2]/div[1]/table/tbody/tr['.$i.']/td[3]/div/div/div');
         }
     }
 
