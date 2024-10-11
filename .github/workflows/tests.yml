@@ -145,6 +145,7 @@ jobs:
       run: ddev exec bin/codecept run acceptance
 
     - name: Upload test artifacts
+      if: failure()
       uses: actions/upload-artifact@v4
       with:
         name: e2e-test-screenshots
